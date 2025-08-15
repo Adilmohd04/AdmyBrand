@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Plus, Minus, HelpCircle, MessageCircle, Mail, Sparkles } from "lucide-react"
+import { Plus, Minus, MessageCircle, Mail, Sparkles } from "lucide-react"
 import { useTheme } from "@/components/ThemeProvider"
 import { EnhancedBackground } from "@/components/ui/enhanced-backgrounds"
 

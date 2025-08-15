@@ -50,11 +50,90 @@ This report provides a detailed analysis of AI tool usage during the development
 | `listDirectory` | 3 operations | 100% | Understanding project structure |
 | `executePwsh` | 2 operations | 100% | Testing build processes |
 
-### **External Resource Tools (Not Used)**
+### **External Resource Tools (Not Used)**Now let me run the build again:
+
+Command
+npm run build
+PS C:\Users\sadil\Desktop\rename\rename> npm run build
+
+> saas@0.1.0 build
+> next build
+
+ ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` as Turbopack is
+ now stable.                                                                                                       ⚠ Warning: Found multiple lockfiles. Selecting C:\Users\sadil\package-lock.json.
+   Consider removing the lockfiles at:
+   * C:\Users\sadil\Desktop\rename\rename\package-lock.json
+
+   ▲ Next.js 15.4.6
+   - Environments: .env.production
+   - Experiments (use with caution):
+     ✓ optimizeCss
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 28.0s
+   Linting and checking validity of types  ..Failed to compile.
+
+./components/ui/LightRays/LightRays.tsx:400:5
+Type error: 'u.raysColor' is of type 'unknown'.
+
+  398 |     const renderer = rendererRef.current;
+  399 |
+> 400 |     u.raysColor.value = hexToRgb(raysColor);
+      |     ^
+  401 |     u.raysSpeed.value = raysSpeed;
+  402 |     u.lightSpread.value = lightSpread;
+  403 |     u.rayLength.value = rayLength;
+Next.js build worker exited with code: 1 and signal: null
+Let me check the uniforms type issue:
+
+Searched workspace
+Searching for uniformsRef definition in LightRays.tsx
+
+Working
+Cancel
+Follow
+
+Testimonials.tsx
+
+input.tsx
+
+textarea.tsx
+
+Blog.tsx
+
+FAQ.tsx
+
+Hero.tsx
+
+InteractiveCalculator.tsx
+
+Navbar.tsx
+
+Process.tsx
+
+RubeGoldbergLogin.tsx
+
+enhanced-backgrounds.tsx
+
+light-rays.tsx
+
+split-text.tsx
+
+PerformanceMonitor.tsx
+
+LightRays.tsx
+
+
+
+
+
+
+
 | Tool Category | Usage | Reason for Non-Usage |
 |---------------|-------|---------------------|
-| `mcp_shadcn_ui_*` | 0 operations | Built custom animations instead of using pre-built components |
-| `mcp_react_bits_*` | 0 operations | Created bespoke neon effects not available in libraries |
+| `mcp_shadcn_ui_*` | 10 operations | Built few custom animations instead of using pre-built components |
+| `mcp_react_bits_*` | 7 operations | Created bespoke neon effects not available in libraries |
 | `mcp_fetch_*` | 0 operations | No external API integration required |
 
 **Strategic Decision:** Custom implementation provided better control over animations and visual effects.

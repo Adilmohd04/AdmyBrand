@@ -3,9 +3,8 @@
 import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Play, Zap, Users, TrendingUp, Clock, ArrowRight, Sparkles, Star, Rocket } from "lucide-react"
+import { Play, ArrowRight, Sparkles, Star, Rocket } from "lucide-react"
 import { useTheme } from "@/components/ThemeProvider"
 import { Aurora } from "@/components/ui/aurora"
 
@@ -26,8 +25,8 @@ export function Hero() {
     offset: ["start start", "end start"]
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const { theme } = useTheme()
   const [isClient, setIsClient] = useState(false)
   const [unicornStudioLoaded, setUnicornStudioLoaded] = useState(true)

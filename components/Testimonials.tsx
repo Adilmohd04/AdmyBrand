@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, Quote, ChevronLeft, ChevronRight, Users, TrendingUp, Sparkles } from "lucide-react"
+import { Star, Quote, ChevronLeft, ChevronRight, TrendingUp, Sparkles } from "lucide-react"
 import { useTheme } from "@/components/ThemeProvider"
 import { EnhancedBackground } from "@/components/ui/enhanced-backgrounds"
 
@@ -201,7 +201,7 @@ export function Testimonials() {
                   <blockquote className={`text-2xl md:text-3xl font-medium leading-relaxed mb-8 relative z-10 ${
                     isDark ? "text-white" : "text-slate-900"
                   }`}>
-                    "                    &ldquo;{testimonials[currentIndex].quote}&rdquo;"
+                    &ldquo;{testimonials[currentIndex].quote}&rdquo;
                   </blockquote>
 
                   {/* Results Badge */}

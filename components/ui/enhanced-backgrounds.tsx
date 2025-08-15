@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useTheme } from "@/components/ThemeProvider"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 interface BackgroundProps {
   variant?: "gradient" | "particles" | "waves" | "geometric" | "aurora" | "mesh" | "liquid"
@@ -113,8 +113,10 @@ export function ParticlesBackground({
     medium: 25,
     high: 40
   }
+  
+  const count = particleCount[intensity]
 
-  const particles = generateParticlePositions(particleCount[intensity], colors)
+  const particles = generateParticlePositions(count, colors)
 
   return (
     <div className={`absolute inset-0 -z-10 overflow-hidden ${className}`}>
@@ -180,8 +182,10 @@ export function GeometricBackground({
     medium: 12,
     high: 18
   }
+  
+  const count = shapeCount[intensity]
 
-  const shapes = generateShapePositions(shapeCount[intensity], colors)
+  const shapes = generateShapePositions(count, colors)
 
   return (
     <div className={`absolute inset-0 -z-10 overflow-hidden ${className}`}>
@@ -218,7 +222,6 @@ export function GeometricBackground({
 
 // Mesh Gradient Background
 export function MeshBackground({ 
-  intensity = "medium",
   colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7"],
   className = ""
 }: BackgroundProps) {
@@ -265,7 +268,6 @@ export function MeshBackground({
 
 // Wave Animation Background
 export function WaveBackground({ 
-  intensity = "medium",
   colors = ["#667eea", "#764ba2"],
   className = ""
 }: BackgroundProps) {
@@ -329,7 +331,6 @@ export function WaveBackground({
 
 // Liquid Chrome-inspired Background
 export function LiquidBackground({ 
-  intensity = "medium",
   colors = ["#ff6b6b", "#4ecdc4", "#45b7d1"],
   className = ""
 }: BackgroundProps) {

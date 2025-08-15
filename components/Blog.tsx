@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -13,9 +13,7 @@ import {
   User, 
   BookOpen, 
   TrendingUp, 
-  Lightbulb,
   Download,
-  Play,
   Star,
   Eye,
   Heart,
@@ -144,7 +142,7 @@ export function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedType, setSelectedType] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const [hoveredPost, setHoveredPost] = useState<number | null>(null)
+  const [, setHoveredPost] = useState<number | null>(null)
   const [email, setEmail] = useState("")
   const [isSubscribed, setIsSubscribed] = useState(false)
   const { theme } = useTheme()
@@ -156,7 +154,7 @@ export function Blog() {
   })
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const isInView = useInView(containerRef, { once: false, amount: 0.1 })
+  useInView(containerRef, { once: false, amount: 0.1 })
 
   const isDark = theme === "dark"
 

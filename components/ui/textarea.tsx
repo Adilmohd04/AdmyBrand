@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  // Additional props can be added here if needed
+  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(

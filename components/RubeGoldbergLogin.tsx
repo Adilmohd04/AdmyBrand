@@ -53,8 +53,8 @@ export default function RubeGoldbergLogin() {
   const router = useRouter()
   const containerRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
-  const animationFrameRef = useRef<number>()
-  const sprayIntervalRef = useRef<NodeJS.Timeout>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
+  const sprayIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined)
   
   // Form state
   const [formData, setFormData] = useState<FormData>({
@@ -122,7 +122,7 @@ export default function RubeGoldbergLogin() {
   }, [scaleToFit])
 
   // Optimized spiral path generation with memoization
-  const { spiralPath, weightPosition } = useMemo(() => {
+  useMemo(() => {
     const centerX = 14, centerY = 14
     const { SPIRAL_RADIUS: radius, SPIRAL_COILS: coils, SPIRAL_POINTS: points } = ANIMATION_CONFIG
     const offset = 8 * state.spiralProgress
@@ -154,10 +154,7 @@ export default function RubeGoldbergLogin() {
     ]
     path += ` l${endPoint[0]},${endPoint[1]}`
 
-    return {
-      spiralPath: path,
-      weightPosition: { x: -47 + 3 * offset, y: 12 + outerLength }
-    }
+    return path
   }, [state.spiralProgress])
 
   // NAME INPUT ANIMATION - Optimized gear and spray system

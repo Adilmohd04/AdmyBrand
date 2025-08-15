@@ -40,8 +40,8 @@ export function Process() {
     offset: ["start end", "end start"]
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const isDark = theme === "dark"
 
   useEffect(() => {
@@ -407,7 +407,7 @@ export function Process() {
           {processSteps.map((step, index) => (
             <motion.div
               key={index}
-              ref={el => processRefs.current[index] = el}
+              ref={el => { processRefs.current[index] = el }}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.8 }}

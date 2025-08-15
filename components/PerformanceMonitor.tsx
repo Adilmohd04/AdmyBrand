@@ -17,11 +17,15 @@ export default function PerformanceMonitor() {
         }
         
         if (entry.entryType === 'first-input') {
-          console.log('FID:', entry.processingStart - entry.startTime)
+          const fidEntry = entry as PerformanceEventTiming
+          console.log('FID:', fidEntry.processingStart - fidEntry.startTime)
         }
         
-        if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-          console.log('CLS:', entry.value)
+        if (entry.entryType === 'layout-shift') {
+          const clsEntry = entry as PerformanceEntry & { value: number; hadRecentInput?: boolean }
+          if (!clsEntry.hadRecentInput) {
+            console.log('CLS:', clsEntry.value)
+          }
         }
       })
     })
@@ -29,7 +33,7 @@ export default function PerformanceMonitor() {
     // Observe performance metrics
     try {
       observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] })
-    } catch (e) {
+    } catch {
       // Fallback for browsers that don't support all entry types
       console.warn('Performance monitoring not fully supported')
     }

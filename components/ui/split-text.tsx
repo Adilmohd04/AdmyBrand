@@ -92,7 +92,7 @@ export function SplitText({
       const lines = textContent.split('\n')
       text.innerHTML = ''
       
-      lines.forEach((line, index) => {
+      lines.forEach((line) => {
         const div = document.createElement('div')
         div.textContent = line
         div.style.opacity = '0'
@@ -114,21 +114,19 @@ export function SplitText({
         trigger: container,
         start: "top 80%",
         end: "bottom 20%",
-        threshold: threshold,
-        rootMargin: rootMargin,
         toggleActions: "play none none reverse"
       },
       onComplete: onLetterAnimationComplete
     })
 
     // Animate elements
-    elements.forEach((element, index) => {
+    elements.forEach((element, elementIndex) => {
       tl.to(element, {
         ...to,
         duration: duration,
         ease: ease,
-        delay: delay * index
-      }, index * delay)
+        delay: delay * elementIndex
+      }, elementIndex * delay)
     })
 
     // Cleanup
